@@ -1,4 +1,6 @@
-from PyQt5 import QtCore, QtGui, QtWidgets
+import sys
+
+from PyQt5 import QtCore, QtWidgets
 
 from first_test_page import FirstPage
 from page_window import PageWindow
@@ -33,8 +35,6 @@ class Main(QtWidgets.QMainWindow):
 
 
 if __name__ == "__main__":
-    import sys
-
     app = QtWidgets.QApplication(sys.argv)
     app.setStyleSheet('''
         QWidget {
