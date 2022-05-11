@@ -8,6 +8,7 @@ from PyQt5.QtWidgets import *
 
 from card import Card
 from cards_list_view import CardsListView
+from database import AppDataBase
 from page_window import PageWindow
 from second_test_page import SecondPage
 
@@ -18,6 +19,7 @@ class FirstPage(PageWindow):
         self.parent = parent
         self.setWindowTitle("Personal Values")
         self.stacked_widget = QWidget()
+        self.db = AppDataBase()
 
         main_layout = QVBoxLayout()
         lists_layout = QHBoxLayout()
@@ -72,6 +74,7 @@ class FirstPage(PageWindow):
             item = QListWidgetItem()
             item.setIcon(QIcon(icon))
             item.setData(Qt.UserRole, Card(i, icon[icon.rfind('\\') + 1:-4], icon))
+            self.db.inserts_card(i, icon[icon.rfind('\\') + 1:-4])
             i += 1
             self.list_cards.addItem(item)
 
