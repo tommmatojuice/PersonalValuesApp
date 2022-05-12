@@ -2,8 +2,10 @@ from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QHBoxLayout, QVBoxLayout
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import *
+from datetime import datetime
 
 from cards_list_view import CardsListView
+from database import AppDataBase
 from page_window import PageWindow
 
 
@@ -14,6 +16,7 @@ class SecondPage(PageWindow):
         self.cards_list = cards_list
         self.setWindowTitle("Personal Values")
         self.stacked_widget = QWidget()
+        self.db = AppDataBase()
 
         main_layout = QVBoxLayout()
         lists_layout = QHBoxLayout()
@@ -68,7 +71,14 @@ class SecondPage(PageWindow):
                 self.list_old_important.addItem(item)
 
     def save_result(self):
-        cards_list = []
-        for x in range(self.list_new_important.count()):
-            cards_list.append(self.list_new_important.item(x).data(Qt.UserRole))
-            print(self.list_new_important.item(x).data(Qt.UserRole).title)
+        text, ok = QInputDialog.getText(self, 'Saving', 'Enter your name:')
+        if ok:
+            check_id = self.db.get_user_id(text)
+            if check_id is None:
+                user_id = self.db.insert_user(text)
+            else:
+                user_id = check_id
+            for x in range(self.list_new_important.count()):
+                self.db.insert_result(datetime.now().strftime("%d/%m/%Y %H:%M:%S"),
+                                      user_id,
+                                      self.list_new_important.item(x).data(Qt.UserRole).path)
