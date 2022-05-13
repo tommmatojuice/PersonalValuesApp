@@ -4,6 +4,7 @@ from PyQt5 import QtCore, QtWidgets
 
 from first_test_page import FirstPage
 from page_window import PageWindow
+from saves_page import SavesPage
 
 
 class Main(QtWidgets.QMainWindow):
@@ -16,9 +17,10 @@ class Main(QtWidgets.QMainWindow):
         self.m_pages = {}
 
         self.register(FirstPage(self), "first")
+        self.register(SavesPage(self), "saves")
 
         self.showMaximized()
-        self.goto("first")
+        self.goto("saves")
 
     def register(self, widget, name):
         self.m_pages[name] = widget

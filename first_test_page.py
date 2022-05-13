@@ -74,7 +74,6 @@ class FirstPage(PageWindow):
             item = QListWidgetItem()
             item.setIcon(QIcon(icon))
             item.setData(Qt.UserRole, Card(i, icon[icon.rfind('\\') + 1:-4], icon))
-            # self.db.inserts_card(i, icon[icon.rfind('\\') + 1:-4])
             i += 1
             self.list_cards.addItem(item)
 
@@ -85,17 +84,5 @@ class FirstPage(PageWindow):
         self.parent.register(SecondPage(cards_list, self), "second")
         self.goto("second")
 
-    # def load_cards(self):
-    #     cards = self.db.select_card()
-    #     if cards.size:
-    #         for index, row in cards.iterrows():
-    #             print(row.card_id)
-    #             item = QListWidgetItem()
-    #             item.setIcon(QIcon(row.path))
-    #             item.setData(Qt.UserRole, Card(row.card_id, row.title, row.path))
-    #             self.list_cards.addItem(item)
-    #     # icon_folder = os.path.join(os.getcwd(), 'icons')
-    #     # i = 0
-    #     # for icon in glob.glob(os.path.join(icon_folder, '*.svg')):
-    #     #     self.db.inserts_card(i, icon[icon.rfind('\\') + 1:-4], icon)
-    #     #     i += 1
+    def prev_page(self):
+        self.goto("menu")
