@@ -51,9 +51,6 @@ class UserSavePage(PageWindow):
 
         self.load_icons()
 
-    def init_buttons(self):
-        pass
-
     def load_icons(self):
         for index, row in self.cards_list.iterrows():
             item = QListWidgetItem()

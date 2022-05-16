@@ -17,13 +17,14 @@ class SavesPage(PageWindow):
         self.db = AppDataBase()
 
         prev_button = QPushButton('Back')
+        prev_button.clicked.connect(lambda: self.goto("menu"))
         space_item = QSpacerItem(0, 0, QSizePolicy.Expanding)
         buttons_layout = QHBoxLayout()
         buttons_layout.addWidget(prev_button)
         buttons_layout.addSpacerItem(space_item)
 
         self.view = ListView(self)
-        self.view.clicked.connect(self.test)
+        self.view.clicked.connect(self.goto_save)
         self.title = QLabel('Saves', self)
         self.title.setContentsMargins(0, 0, 0, 20)
         self.title.setFont(QFont('Roboto', 17))
@@ -40,15 +41,12 @@ class SavesPage(PageWindow):
         self.stacked_widget.setLayout(main_layout)
         self.setCentralWidget(self.stacked_widget)
 
-    def test(self, index: QModelIndex):
+    def goto_save(self, index: QModelIndex):
         name = self.view.model().data(index)
         date = self.view.model().data(self.view.model().index(index.row(), 1))
         df = self.db.get_save(name, date)
         self.parent.register(UserSavePage(df, self), "user_save")
         self.goto("user_save")
-
-    def prev_page(self):
-        self.goto("menu")
 
 
 class ListView(QtWidgets.QTreeView):

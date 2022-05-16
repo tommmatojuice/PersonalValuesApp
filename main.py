@@ -1,10 +1,16 @@
 import sys
 
-from PyQt5 import QtCore, QtWidgets
+from PyQt5 import QtCore, QtGui, QtWidgets
 
 from first_test_page import FirstPage
 from page_window import PageWindow
 from saves_page import SavesPage
+from start_page import StartPage
+
+# нужно добавить окна с информацией
+# нужно проверки на последнем этапе теста
+# нужно проверки на ввод
+# pyuic5 -x start.ui -o start_page.py
 
 
 class Main(QtWidgets.QMainWindow):
@@ -14,19 +20,41 @@ class Main(QtWidgets.QMainWindow):
         self.stacked_widget = QtWidgets.QStackedWidget()
         self.setCentralWidget(self.stacked_widget)
 
-        self.m_pages = {}
+        self.menu_bar = QtWidgets.QMenuBar(self)
+        self.menu_bar.setGeometry(QtCore.QRect(0, 0, 863, 20))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(8)
+        self.menu_bar.setFont(font)
+        self.menu_bar.setStyleSheet("background-color: rgb(191, 225, 235);")
+        self.menu_menu = QtWidgets.QMenu(self.menu_bar)
+        self.menu_menu.setFont(font)
+        self.setMenuBar(self.menu_bar)
+        self.action_results = QtWidgets.QAction(self)
+        self.action_results.setFont(font)
+        self.action_results.triggered.connect(lambda: self.goto('saves'))
+        self.menu_menu.addAction(self.action_results)
+        self.menu_bar.addAction(self.menu_menu.menuAction())
+        self.retranslate_ui()
 
+        self.m_pages = {}
         self.register(FirstPage(self), "first")
         self.register(SavesPage(self), "saves")
+        self.register(StartPage(self), "start")
 
         self.showMaximized()
-        self.goto("saves")
+        self.goto("start")
 
     def register(self, widget, name):
         self.m_pages[name] = widget
         self.stacked_widget.addWidget(widget)
         if isinstance(widget, PageWindow):
             widget.gotoSignal.connect(self.goto)
+
+    def retranslate_ui(self):
+        _translate = QtCore.QCoreApplication.translate
+        self.menu_menu.setTitle(_translate("MainWindow", "Menu"))
+        self.action_results.setText(_translate("MainWindow", "Results"))
 
     @QtCore.pyqtSlot(str)
     def goto(self, name):
@@ -40,7 +68,8 @@ if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     app.setStyleSheet('''
         QWidget {
-            font-size: 17px;
+            background-color: rgb(231, 242, 248);
+            color: rgb(0, 0, 0);
         }
     ''')
     w = Main()

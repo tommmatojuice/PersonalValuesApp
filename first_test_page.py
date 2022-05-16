@@ -53,7 +53,6 @@ class FirstPage(PageWindow):
         self.prev_button = QPushButton('Back')
         self.spaceItem = QSpacerItem(0, 0, QSizePolicy.Expanding)
 
-        self.next_button.clicked.connect(self.next_page)
         buttons_layout.addWidget(self.prev_button)
         buttons_layout.addSpacerItem(self.spaceItem)
         buttons_layout.addWidget(self.next_button)
@@ -63,9 +62,11 @@ class FirstPage(PageWindow):
         main_layout.addLayout(buttons_layout)
 
         self.load_icons()
+        self.init_buttons()
 
     def init_buttons(self):
-        pass
+        self.next_button.clicked.connect(self.next_page)
+        self.prev_button.clicked.connect(lambda: self.goto("menu"))
 
     def load_icons(self):
         icon_folder = os.path.join(os.getcwd(), 'icons')
@@ -83,6 +84,3 @@ class FirstPage(PageWindow):
             cards_list.append(self.list_very_important.item(x).data(Qt.UserRole))
         self.parent.register(SecondPage(cards_list, self), "second")
         self.goto("second")
-
-    def prev_page(self):
-        self.goto("menu")

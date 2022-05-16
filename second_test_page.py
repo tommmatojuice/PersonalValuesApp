@@ -48,8 +48,6 @@ class SecondPage(PageWindow):
         self.save_button = QPushButton('Save')
         self.prev_button = QPushButton('Back')
 
-        self.save_button.clicked.connect(self.save_result)
-        self.prev_button.clicked.connect(self.prev_page)
         buttons_layout.addWidget(self.prev_button)
         buttons_layout.addSpacerItem(self.spaceItem)
         buttons_layout.addWidget(self.save_button)
@@ -61,7 +59,8 @@ class SecondPage(PageWindow):
         self.load_icons()
 
     def init_buttons(self):
-        pass
+        self.save_button.clicked.connect(self.save_result)
+        self.prev_button.clicked.connect(lambda: self.goto("first"))
 
     def load_icons(self):
         if self.cards_list:
@@ -83,7 +82,4 @@ class SecondPage(PageWindow):
                 self.db.insert_result(datetime.now().strftime("%d.%m.%Y %H:%M:%S"),
                                       user_id,
                                       self.list_new_important.item(x).data(Qt.UserRole).path)
-
-    def prev_page(self):
-        self.goto("first")
 
