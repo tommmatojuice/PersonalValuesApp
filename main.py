@@ -1,10 +1,13 @@
 import sys
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QStyleFactory
 
+from first_page_new import FirstPageNew
 from first_test_page import FirstPage
 from page_window import PageWindow
 from saves_page import SavesPage
+from second_page_new import SecondPageNew
 from start_page import StartPage
 
 # нужно добавить окна с информацией
@@ -41,6 +44,7 @@ class Main(QtWidgets.QMainWindow):
         self.register(FirstPage(self), "first")
         self.register(SavesPage(self), "saves")
         self.register(StartPage(self), "start")
+        self.register(FirstPageNew(self), "first_new")
 
         self.showMaximized()
         self.goto("start")
@@ -66,8 +70,10 @@ class Main(QtWidgets.QMainWindow):
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
+    app.setStyle(QStyleFactory.create('Fusion'))
     app.setStyleSheet('''
         QWidget {
+            font: "Roboto";
             background-color: rgb(231, 242, 248);
             color: rgb(0, 0, 0);
         }

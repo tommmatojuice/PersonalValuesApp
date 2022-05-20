@@ -8,7 +8,7 @@ class CardsListView(QListWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.parent = parent
-        self.setIconSize(QSize(459, 250))
+        self.setIconSize(QSize(443, 250))
         self.setDragDropMode(QAbstractItemView.DragDrop)
         self.setAcceptDrops(True)
         self.setDefaultDropAction(QtCore.Qt.MoveAction)
