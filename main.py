@@ -14,6 +14,7 @@ from start_page import StartPage
 # нужно проверки на последнем этапе теста
 # нужно проверки на ввод
 # pyuic5 -x start.ui -o start_page.py
+from third_page import ThirdPage
 
 
 class Main(QtWidgets.QMainWindow):

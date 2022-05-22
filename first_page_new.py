@@ -2,7 +2,7 @@ import os
 import glob
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QSize
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import *
 
@@ -18,8 +18,8 @@ class FirstPageNew(PageWindow):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.parent = parent
+        print(self.parent)
         self.setWindowTitle("Personal Values Test")
-        parent.resize(851, 714)
         self.central_widget = QtWidgets.QWidget()
         self.central_widget.setStyleSheet("background-color: rgb(243, 234, 227);\n")
         self.grid_layout = QtWidgets.QGridLayout(self.central_widget)
@@ -52,6 +52,7 @@ class FirstPageNew(PageWindow):
                                                "border : 0px;")
         self.grid_layout.addWidget(self.list_very_important, 1, 3, 1, 1)
         self.list_cards = CardsListView(self)
+        self.list_cards.setItemAlignment(Qt.AlignCenter)
         self.list_cards.setStyleSheet("background-color: rgb(205, 224, 229);\n"
                                       "border : 0px;")
         self.grid_layout.addWidget(self.list_cards, 1, 4, 1, 1)
@@ -156,5 +157,5 @@ class FirstPageNew(PageWindow):
         cards_list = []
         for x in range(self.list_very_important.count()):
             cards_list.append(self.list_very_important.item(x).data(Qt.UserRole))
-        self.parent.register(SecondPageNew(cards_list, self), "second_new")
+        self.parent.register(SecondPageNew(cards_list, self.parent), "second_new")
         self.goto("second_new")

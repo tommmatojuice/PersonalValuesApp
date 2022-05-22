@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>937</width>
+    <width>936</width>
     <height>787</height>
    </rect>
   </property>
@@ -15,29 +15,235 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(243, 234, 227);
+    <string notr="true">background-color: rgb(231, 242, 248);
 font: 57 9pt &quot;Roboto&quot;;</string>
    </property>
    <layout class="QGridLayout" name="gridLayout">
     <property name="leftMargin">
      <number>10</number>
     </property>
+    <item row="2" column="1">
+     <spacer name="horizontalSpacer_3">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="2" column="0">
+     <widget class="QListView" name="list_cards">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(205, 224, 229);
+border : 0px;</string>
+      </property>
+     </widget>
+    </item>
     <item row="2" column="2">
-     <layout class="QGridLayout" name="gridLayout_2">
+     <layout class="QGridLayout" name="gridLayout_3">
       <item row="0" column="2">
-       <widget class="QPushButton" name="info_button">
-        <property name="minimumSize">
+       <widget class="QLabel" name="label_6">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(3, 67, 155);</string>
+        </property>
+        <property name="text">
+         <string>6</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(3, 67, 155);</string>
+        </property>
+        <property name="text">
+         <string>2</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLabel" name="label_4">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(3, 67, 155);</string>
+        </property>
+        <property name="text">
+         <string>4</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QListView" name="listView_5">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(252, 249, 240);
+border-color: rgb(56, 156, 216);
+border-width: 3px;
+border-style: dashed;
+border-radius : 22;</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="3">
+       <widget class="QListView" name="listView_9">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(252, 249, 240);
+border-color: rgb(56, 156, 216);
+border-width: 3px;
+border-style: dashed;
+border-radius : 22;</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="QListView" name="listView_2">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(252, 249, 240);
+border-color: rgb(56, 156, 216);
+border-width: 3px;
+border-style: dashed;
+border-radius : 22;</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="1">
+       <widget class="QListView" name="listView_4">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(252, 249, 240);
+border-color: rgb(56, 156, 216);
+border-width: 3px;
+border-style: dashed;
+border-radius : 22;</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="2">
+       <widget class="QLabel" name="label_8">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(3, 67, 155);</string>
+        </property>
+        <property name="text">
+         <string>8</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="QLabel" name="label_7">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(3, 67, 155);</string>
+        </property>
+        <property name="text">
+         <string>7</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="2">
+       <widget class="QLabel" name="label_9">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(3, 67, 155);</string>
+        </property>
+        <property name="text">
+         <string>9</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="2">
+       <widget class="QLabel" name="label_10">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(3, 67, 155);</string>
+        </property>
+        <property name="text">
+         <string>10</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="3">
+       <widget class="QListView" name="listView_10">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(252, 249, 240);
+border-color: rgb(56, 156, 216);
+border-width: 3px;
+border-style: dashed;
+border-radius : 22;</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <spacer name="verticalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
          <size>
-          <width>44</width>
-          <height>44</height>
+          <width>20</width>
+          <height>40</height>
          </size>
         </property>
-        <property name="maximumSize">
+       </spacer>
+      </item>
+      <item row="5" column="1">
+       <spacer name="verticalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
          <size>
-          <width>44</width>
-          <height>44</height>
+          <width>20</width>
+          <height>40</height>
          </size>
         </property>
+       </spacer>
+      </item>
+      <item row="7" column="1">
+       <spacer name="verticalSpacer_4">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="1" column="1">
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="8" column="0">
+       <widget class="QLabel" name="label_5">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(3, 67, 155);</string>
+        </property>
+        <property name="text">
+         <string>5</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(3, 67, 155);</string>
+        </property>
+        <property name="text">
+         <string>3</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
         <property name="font">
          <font>
           <family>Roboto</family>
@@ -48,25 +254,175 @@ font: 57 9pt &quot;Roboto&quot;;</string>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">QPushButton {
-background-color: rgb(88, 188, 212);
-color: rgb(255, 255, 255);
-border-radius : 22;
-border-bottom : 2px solid rgb(61, 161, 185);
-border-right: 2px solid rgb(61, 161, 185);
-}
-QPushButton::hover {
-background-color: rgb(61, 161, 185);
-color: rgb(255, 255, 255);
-border-radius : 22;
-}</string>
+         <string notr="true">color: rgb(3, 67, 155);</string>
         </property>
         <property name="text">
-         <string>?</string>
+         <string>1</string>
+        </property>
+        <property name="margin">
+         <number>5</number>
         </property>
        </widget>
       </item>
-      <item row="0" column="3">
+      <item row="0" column="1">
+       <widget class="QListView" name="listView">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(252, 249, 240);
+border-color: rgb(56, 156, 216);
+border-width: 3px;
+border-style: dashed;
+border-radius : 22;</string>
+        </property>
+        <property name="spacing">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="1">
+       <widget class="QListView" name="listView_3">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(252, 249, 240);
+border-color: rgb(56, 156, 216);
+border-width: 3px;
+border-style: dashed;
+border-radius : 22;</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="3">
+       <widget class="QListView" name="listView_7">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(252, 249, 240);
+border-color: rgb(56, 156, 216);
+border-width: 3px;
+border-style: dashed;
+border-radius : 22;</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="3">
+       <widget class="QListView" name="listView_8">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(252, 249, 240);
+border-color: rgb(56, 156, 216);
+border-width: 3px;
+border-style: dashed;
+border-radius : 22;</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QListView" name="listView_6">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(252, 249, 240);
+border-color: rgb(56, 156, 216);
+border-width: 3px;
+border-style: dashed;
+border-radius : 22;</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_cards">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(135, 198, 213);
+color: rgb(30, 72, 154);</string>
+      </property>
+      <property name="text">
+       <string>VERY IMPORTANT TO ME</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="margin">
+       <number>15</number>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <spacer name="horizontalSpacer_4">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_important">
+        <property name="minimumSize">
+         <size>
+          <width>200</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(237, 207, 159);
+color: rgb(96, 59, 0);</string>
+        </property>
+        <property name="text">
+         <string>MY TOP VALUES</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="margin">
+         <number>15</number>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_5">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item row="2" column="3">
+     <spacer name="horizontalSpacer_6">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="3" column="0" colspan="4">
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="0">
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="0" column="4">
        <widget class="QPushButton" name="next_button">
         <property name="minimumSize">
          <size>
@@ -108,7 +464,49 @@ border-radius : 22;
         </property>
        </widget>
       </item>
-      <item row="0" column="0">
+      <item row="0" column="3">
+       <widget class="QPushButton" name="info_button">
+        <property name="minimumSize">
+         <size>
+          <width>44</width>
+          <height>44</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>44</width>
+          <height>44</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>9</pointsize>
+          <weight>7</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+background-color: rgb(88, 188, 212);
+color: rgb(255, 255, 255);
+border-radius : 22;
+border-bottom : 2px solid rgb(61, 161, 185);
+border-right: 2px solid rgb(61, 161, 185);
+}
+QPushButton::hover {
+background-color: rgb(61, 161, 185);
+color: rgb(255, 255, 255);
+border-radius : 22;
+}</string>
+        </property>
+        <property name="text">
+         <string>?</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
        <widget class="QPushButton" name="prev_button">
         <property name="minimumSize">
          <size>
@@ -141,105 +539,20 @@ border-radius : 22;
         </property>
        </widget>
       </item>
+      <item row="0" column="5">
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
      </layout>
-    </item>
-    <item row="0" column="2">
-     <widget class="QLabel" name="label_important">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(237, 207, 159);
-color: rgb(96, 59, 0);</string>
-      </property>
-      <property name="text">
-       <string>IMPORTANT TO ME</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-      <property name="margin">
-       <number>15</number>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="2">
-     <widget class="QListView" name="list_important_2">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(234, 222, 213);
-border : 0px;</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="4">
-     <widget class="QLabel" name="label_cards">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(135, 198, 213);
-color: rgb(30, 72, 154);</string>
-      </property>
-      <property name="text">
-       <string>VALUES CARDS</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-      <property name="margin">
-       <number>15</number>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="4">
-     <widget class="QListView" name="list_cards">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(205, 224, 229);
-border : 0px;</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <spacer name="horizontalSpacer_4">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="1" column="3">
-     <spacer name="horizontalSpacer">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeType">
-       <enum>QSizePolicy::Maximum</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="2" column="4">
-     <widget class="QPushButton" name="pushButton">
-      <property name="minimumSize">
-       <size>
-        <width>270</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>270</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>PushButton</string>
-      </property>
-     </widget>
     </item>
    </layout>
   </widget>
@@ -248,7 +561,7 @@ border : 0px;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>937</width>
+     <width>936</width>
      <height>25</height>
     </rect>
    </property>

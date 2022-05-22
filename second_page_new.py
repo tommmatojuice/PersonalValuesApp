@@ -1,11 +1,12 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtGui import QIcon
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QSize
 from PyQt5.QtWidgets import *
 from datetime import datetime
 
 from cards_list_view import CardsListView
 from page_window import PageWindow
+from third_page import ThirdPage
 
 
 class SecondPageNew(PageWindow):
@@ -13,7 +14,6 @@ class SecondPageNew(PageWindow):
         super().__init__(parent)
         self.parent = parent
         self.cards_list = cards_list
-        parent.resize(937, 787)
         self.central_widget = QtWidgets.QWidget()
         self.central_widget.setStyleSheet("background-color: rgb(243, 234, 227);")
         self.grid_layout = QtWidgets.QGridLayout(self.central_widget)
@@ -88,7 +88,8 @@ class SecondPageNew(PageWindow):
         self.label_important.setAlignment(QtCore.Qt.AlignCenter)
         self.grid_layout.addWidget(self.label_important, 0, 2, 1, 1)
         self.list_new_important = CardsListView(self)
-        self.list_new_important.setMaximumWidth(455)
+        self.list_new_important.setMinimumWidth(443)
+        self.list_new_important.setMaximumWidth(465)
         self.list_new_important.setStyleSheet("background-color: rgb(234, 222, 213);\n"
                                             "border : 0px;")
         self.grid_layout.addWidget(self.list_new_important, 1, 2, 1, 1)
@@ -100,8 +101,9 @@ class SecondPageNew(PageWindow):
         self.grid_layout.addWidget(self.label_cards, 0, 4, 1, 1)
         self.list_old_important = CardsListView(self)
         self.list_ghost = QtWidgets.QListView(self.central_widget)
-        self.list_old_important.setMaximumWidth(455)
-        self.list_ghost.setMaximumWidth(240)
+        self.list_old_important.setMinimumWidth(443)
+        self.list_old_important.setMaximumWidth(465)
+        self.list_ghost.setMaximumWidth(220)
         self.list_ghost.setEnabled(True)
         self.list_old_important.setStyleSheet("background-color: rgb(205, 224, 229);\n"
                                       "border : 0px;")
@@ -130,7 +132,7 @@ class SecondPageNew(PageWindow):
         self.label_cards.setText(_translate("MainWindow", "UNUSED CARDS"))
 
     def init_buttons(self):
-        self.next_button.clicked.connect(lambda: self.goto("first_new"))
+        self.next_button.clicked.connect(self.next_page)
         self.prev_button.clicked.connect(lambda: self.goto("first_new"))
 
     def load_icons(self):
@@ -154,3 +156,9 @@ class SecondPageNew(PageWindow):
                                       user_id,
                                       self.list_new_important.item(x).data(Qt.UserRole).path)
 
+    def next_page(self):
+        cards_list = []
+        for x in range(self.list_new_important.count()):
+            cards_list.append(self.list_new_important.item(x).data(Qt.UserRole))
+        self.parent.register(ThirdPage(cards_list, self.parent), "third")
+        self.goto("third")
