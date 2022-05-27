@@ -4,17 +4,15 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QStyleFactory
 
 from first_page_new import FirstPageNew
-from first_test_page import FirstPage
+from fourth_page import FourthPage
 from page_window import PageWindow
 from saves_page import SavesPage
-from second_page_new import SecondPageNew
 from start_page import StartPage
 
 # нужно добавить окна с информацией
-# нужно проверки на последнем этапе теста
-# нужно проверки на ввод
+# нужны проверки на последнем этапе теста
+# нужны проверки на ввод
 # pyuic5 -x start.ui -o start_page.py
-from third_page import ThirdPage
 
 
 class Main(QtWidgets.QMainWindow):
@@ -42,13 +40,13 @@ class Main(QtWidgets.QMainWindow):
         self.retranslate_ui()
 
         self.m_pages = {}
-        self.register(FirstPage(self), "first")
         self.register(SavesPage(self), "saves")
         self.register(StartPage(self), "start")
         self.register(FirstPageNew(self), "first_new")
+        # self.register(FourthPage([], self), "fourth")
 
         self.showMaximized()
-        self.goto("start")
+        self.goto("first_new")
 
     def register(self, widget, name):
         self.m_pages[name] = widget

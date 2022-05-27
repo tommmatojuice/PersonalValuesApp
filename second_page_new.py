@@ -91,7 +91,7 @@ class SecondPageNew(PageWindow):
         self.list_new_important.setMinimumWidth(443)
         self.list_new_important.setMaximumWidth(465)
         self.list_new_important.setStyleSheet("background-color: rgb(234, 222, 213);\n"
-                                            "border : 0px;")
+                                              "border : 0px;")
         self.grid_layout.addWidget(self.list_new_important, 1, 2, 1, 1)
         self.label_cards = QtWidgets.QLabel(self.central_widget)
         self.label_cards.setStyleSheet("background-color: rgb(135, 198, 213);\n"

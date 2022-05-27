@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>936</width>
+    <width>1000</width>
     <height>787</height>
    </rect>
   </property>
@@ -266,6 +266,18 @@ border-radius : 22;</string>
       </item>
       <item row="0" column="1">
        <widget class="QListView" name="listView">
+        <property name="minimumSize">
+         <size>
+          <width>455</width>
+          <height>262</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>455</width>
+          <height>262</height>
+         </size>
+        </property>
         <property name="styleSheet">
          <string notr="true">background-color: rgb(252, 249, 240);
 border-color: rgb(56, 156, 216);
@@ -561,7 +573,7 @@ border-radius : 22;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>936</width>
+     <width>1000</width>
      <height>25</height>
     </rect>
    </property>

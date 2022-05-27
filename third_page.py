@@ -11,7 +11,6 @@ class ThirdPage(PageWindow):
     def __init__(self, cards_list, parent=None):
         super().__init__(parent)
         self.parent = parent
-        print(parent)
         self.cards_list = cards_list
         self.cards_list_copy = cards_list
         self.central_widget = QtWidgets.QWidget()
@@ -50,7 +49,7 @@ class ThirdPage(PageWindow):
                                         "border-radius : 22;")
         self.grid_layout_3.addWidget(self.list_value_5, 2, 1, 1, 1)
         self.list_value_9 = CardsListView(self)
-        self.list_value_9.setMinimumWidth(455)
+        self.list_value_9.setMinimumWidth(470)
         self.list_value_9.setStyleSheet("background-color: rgb(252, 249, 240);\n"
                                         "border-color: rgb(56, 156, 216);\n"
                                         "border-width: 3px;\n"
@@ -122,7 +121,7 @@ class ThirdPage(PageWindow):
                                         "border-width: 3px;\n"
                                         "border-style: dashed;\n"
                                         "border-radius : 22;")
-        self.list_value_1.setMinimumWidth(455)
+        self.list_value_1.setMinimumWidth(470)
         self.grid_layout_3.addWidget(self.list_value_1, 0, 1, 1, 1)
         self.list_value_3 = CardsListView(self)
         self.list_value_3.setStyleSheet("background-color: rgb(252, 249, 240);\n"
@@ -248,13 +247,21 @@ class ThirdPage(PageWindow):
 
     def init_buttons(self):
         pass
-        # self.next_button.clicked.connect(self.next_page)
+        self.next_button.clicked.connect(self.next_page)
         self.prev_button.clicked.connect(self.prev_page)
 
     def prev_page(self):
         from second_page_new import SecondPageNew
         self.parent.register(SecondPageNew(self.cards_list_copy, self.parent), "second_new")
         self.goto("second_new")
+
+    def next_page(self):
+        cards_list = []
+        # for x in range(self.list_new_important.count()):
+        #     cards_list.append(self.list_new_important.item(x).data(Qt.UserRole))
+        from fourth_page import FourthPage
+        self.parent.register(FourthPage(cards_list, self.parent), "fourth")
+        self.goto("fourth")
 
     def retranslate_ui(self):
         _translate = QtCore.QCoreApplication.translate

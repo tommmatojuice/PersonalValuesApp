@@ -11,7 +11,6 @@ from cards_list_view import CardsListView
 from database import AppDataBase
 from page_window import PageWindow
 from second_page_new import SecondPageNew
-from second_test_page import SecondPage
 
 
 class FirstPageNew(PageWindow):
@@ -42,9 +41,11 @@ class FirstPageNew(PageWindow):
         self.label_very_important.setAlignment(QtCore.Qt.AlignCenter)
         self.grid_layout.addWidget(self.label_very_important, 0, 3, 1, 1)
         self.label_cards = QtWidgets.QLabel(self.central_widget)
+
         self.label_cards.setStyleSheet("background-color: rgb(135, 198, 213);\n"
                                        "color: rgb(30, 72, 154);"
-                                       "font: 57 14pt \"Roboto\";")
+                                       "font: 57 14pt \"Roboto\";"
+                                       "")
         self.label_cards.setAlignment(QtCore.Qt.AlignCenter)
         self.grid_layout.addWidget(self.label_cards, 0, 4, 1, 1)
         self.list_very_important = CardsListView(self)
