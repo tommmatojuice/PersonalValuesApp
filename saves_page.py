@@ -71,6 +71,6 @@ class ListView(QtWidgets.QTreeView):
         for index, row in saves.iterrows():
             first = QtGui.QStandardItem(row['name'])
             first.setSizeHint(QSize(0, 50))
-            second = QtGui.QStandardItem(row['date'])
+            second = QtGui.QStandardItem(row['date'][:-3])
             second.setTextAlignment(Qt.AlignCenter)
             self.model().appendRow([first, second])

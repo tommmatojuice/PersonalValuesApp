@@ -16,7 +16,6 @@ class CardsListView(QListWidget):
         self.setSelectionMode(QAbstractItemView.ExtendedSelection)
 
     def viewOptions(self) -> QStyleOptionViewItem:
-        print(self.size().width()-75)
         self.setIconSize(QSize(self.size().width()-45, 150))
         option = QListWidget.viewOptions(self)
         option.decorationPosition = QStyleOptionViewItem.Top

@@ -12,6 +12,7 @@ class ThirdPage(PageWindow):
         super().__init__(parent)
         self.parent = parent
         self.cards_list = cards_list
+        self.lists = []
         self.cards_list_copy = cards_list
         self.central_widget = QtWidgets.QWidget()
         self.central_widget.setStyleSheet("background-color: rgb(231, 242, 248);\n")
@@ -41,13 +42,80 @@ class ThirdPage(PageWindow):
         self.value_4.setFont(QtGui.QFont('Roboto', 18))
         self.value_4.setStyleSheet("color: rgb(3, 67, 155);")
         self.grid_layout_3.addWidget(self.value_4, 6, 0, 1, 1)
+
+        self.list_value_1 = CardsListView(self)
+        self.list_value_1.setStyleSheet("background-color: rgb(252, 249, 240);\n"
+                                        "border-color: rgb(56, 156, 216);\n"
+                                        "border-width: 3px;\n"
+                                        "border-style: dashed;\n"
+                                        "border-radius : 22;")
+        self.list_value_1.setMinimumWidth(470)
+        self.grid_layout_3.addWidget(self.list_value_1, 0, 1, 1, 1)
+        self.lists.append(self.list_value_1)
+
+        self.list_value_2 = CardsListView(self)
+        self.list_value_2.setStyleSheet("background-color: rgb(252, 249, 240);\n"
+                                        "border-color: rgb(56, 156, 216);\n"
+                                        "border-width: 3px;\n"
+                                        "border-style: dashed;\n"
+                                        "border-radius : 22;")
+        self.grid_layout_3.addWidget(self.list_value_2, 2, 1, 1, 1)
+        self.lists.append(self.list_value_2)
+
+        self.list_value_3 = CardsListView(self)
+        self.list_value_3.setStyleSheet("background-color: rgb(252, 249, 240);\n"
+                                        "border-color: rgb(56, 156, 216);\n"
+                                        "border-width: 3px;\n"
+                                        "border-style: dashed;\n"
+                                        "border-radius : 22;")
+        self.grid_layout_3.addWidget(self.list_value_3, 4, 1, 1, 1)
+        self.lists.append(self.list_value_3)
+
+        self.list_value_4 = CardsListView(self)
+        self.list_value_4.setStyleSheet("background-color: rgb(252, 249, 240);\n"
+                                        "border-color: rgb(56, 156, 216);\n"
+                                        "border-width: 3px;\n"
+                                        "border-style: dashed;\n"
+                                        "border-radius : 22;")
+        self.grid_layout_3.addWidget(self.list_value_4, 6, 1, 1, 1)
+        self.lists.append(self.list_value_4)
+
         self.list_value_5 = CardsListView(self)
         self.list_value_5.setStyleSheet("background-color: rgb(252, 249, 240);\n"
                                         "border-color: rgb(56, 156, 216);\n"
                                         "border-width: 3px;\n"
                                         "border-style: dashed;\n"
                                         "border-radius : 22;")
-        self.grid_layout_3.addWidget(self.list_value_5, 2, 1, 1, 1)
+        self.grid_layout_3.addWidget(self.list_value_5, 8, 1, 1, 1)
+        self.lists.append(self.list_value_5)
+
+        self.list_value_6 = CardsListView(self)
+        self.list_value_6.setStyleSheet("background-color: rgb(252, 249, 240);\n"
+                                        "border-color: rgb(56, 156, 216);\n"
+                                        "border-width: 3px;\n"
+                                        "border-style: dashed;\n"
+                                        "border-radius : 22;")
+        self.grid_layout_3.addWidget(self.list_value_6, 0, 3, 1, 1)
+        self.lists.append(self.list_value_6)
+
+        self.list_value_7 = CardsListView(self)
+        self.list_value_7.setStyleSheet("background-color: rgb(252, 249, 240);\n"
+                                        "border-color: rgb(56, 156, 216);\n"
+                                        "border-width: 3px;\n"
+                                        "border-style: dashed;\n"
+                                        "border-radius : 22;")
+        self.grid_layout_3.addWidget(self.list_value_7, 2, 3, 1, 1)
+        self.lists.append(self.list_value_7)
+
+        self.list_value_8 = CardsListView(self)
+        self.list_value_8.setStyleSheet("background-color: rgb(252, 249, 240);\n"
+                                        "border-color: rgb(56, 156, 216);\n"
+                                        "border-width: 3px;\n"
+                                        "border-style: dashed;\n"
+                                        "border-radius : 22;")
+        self.grid_layout_3.addWidget(self.list_value_8, 4, 3, 1, 1)
+        self.lists.append(self.list_value_8)
+
         self.list_value_9 = CardsListView(self)
         self.list_value_9.setMinimumWidth(470)
         self.list_value_9.setStyleSheet("background-color: rgb(252, 249, 240);\n"
@@ -56,22 +124,21 @@ class ThirdPage(PageWindow):
                                         "border-style: dashed;\n"
                                         "border-radius : 22;")
         self.grid_layout_3.addWidget(self.list_value_9, 6, 3, 1, 1)
-        self.list_value_2 = CardsListView(self)
-        self.list_value_2.setStyleSheet("background-color: rgb(252, 249, 240);\n"
-                                        "border-color: rgb(56, 156, 216);\n"
-                                        "border-width: 3px;\n"
-                                        "border-style: dashed;\n"
-                                        "border-radius : 22;")
-        self.grid_layout_3.addWidget(self.list_value_2, 0, 3, 1, 1)
-        self.list_value_4 = CardsListView(self)
-        self.list_value_4.setStyleSheet("background-color: rgb(252, 249, 240);\n"
-                                        "border-color: rgb(56, 156, 216);\n"
-                                        "border-width: 3px;\n"
-                                        "border-style: dashed;\n"
-                                        "border-radius : 22;")
-        self.grid_layout_3.addWidget(self.list_value_4, 6, 1, 1, 1)
+        self.lists.append(self.list_value_9)
+
+        self.list_value_10 = CardsListView(self)
+        self.list_value_10.setStyleSheet("background-color: rgb(252, 249, 240);\n"
+                                         "border-color: rgb(56, 156, 216);\n"
+                                         "border-width: 3px;\n"
+                                         "border-style: dashed;\n"
+                                         "border-radius : 22;")
+        self.grid_layout_3.addWidget(self.list_value_10, 8, 3, 1, 1)
+        self.lists.append(self.list_value_10)
+
         self.value_8 = QtWidgets.QLabel(self.central_widget)
         self.value_8.setStyleSheet("color: rgb(3, 67, 155);")
+        self.value_8.setContentsMargins(40, 0, 20, 0)
+        self.value_8.setFont(QtGui.QFont('Roboto', 18))
         self.grid_layout_3.addWidget(self.value_8, 4, 2, 1, 1)
         self.value_7 = QtWidgets.QLabel(self.central_widget)
         self.value_7.setContentsMargins(40, 0, 20, 0)
@@ -88,13 +155,6 @@ class ThirdPage(PageWindow):
         self.value_10.setFont(QtGui.QFont('Roboto', 18))
         self.value_10.setStyleSheet("color: rgb(3, 67, 155);")
         self.grid_layout_3.addWidget(self.value_10, 8, 2, 1, 1)
-        self.list_view_10 = CardsListView(self)
-        self.list_view_10.setStyleSheet("background-color: rgb(252, 249, 240);\n"
-                                        "border-color: rgb(56, 156, 216);\n"
-                                        "border-width: 3px;\n"
-                                        "border-style: dashed;\n"
-                                        "border-radius : 22;")
-        self.grid_layout_3.addWidget(self.list_view_10, 8, 3, 1, 1)
         spacer_item1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.grid_layout_3.addItem(spacer_item1, 3, 1, 1, 1)
         self.grid_layout_3.addItem(spacer_item1, 5, 1, 1, 1)
@@ -115,44 +175,7 @@ class ThirdPage(PageWindow):
         self.value_1.setFont(QtGui.QFont('Roboto', 18))
         self.value_1.setStyleSheet("color: rgb(3, 67, 155);")
         self.grid_layout_3.addWidget(self.value_1, 0, 0, 1, 1)
-        self.list_value_1 = CardsListView(self)
-        self.list_value_1.setStyleSheet("background-color: rgb(252, 249, 240);\n"
-                                        "border-color: rgb(56, 156, 216);\n"
-                                        "border-width: 3px;\n"
-                                        "border-style: dashed;\n"
-                                        "border-radius : 22;")
-        self.list_value_1.setMinimumWidth(470)
-        self.grid_layout_3.addWidget(self.list_value_1, 0, 1, 1, 1)
-        self.list_value_3 = CardsListView(self)
-        self.list_value_3.setStyleSheet("background-color: rgb(252, 249, 240);\n"
-                                        "border-color: rgb(56, 156, 216);\n"
-                                        "border-width: 3px;\n"
-                                        "border-style: dashed;\n"
-                                        "border-radius : 22;")
-        self.grid_layout_3.addWidget(self.list_value_3, 8, 1, 1, 1)
-        self.list_value_7 = CardsListView(self)
-        self.list_value_7.setStyleSheet("background-color: rgb(252, 249, 240);\n"
-                                        "border-color: rgb(56, 156, 216);\n"
-                                        "border-width: 3px;\n"
-                                        "border-style: dashed;\n"
-                                        "border-radius : 22;")
-        self.grid_layout_3.addWidget(self.list_value_7, 2, 3, 1, 1)
-        self.list_value_8 = CardsListView(self)
-        self.value_8.setContentsMargins(40, 0, 20, 0)
-        self.value_8.setFont(QtGui.QFont('Roboto', 18))
-        self.list_value_8.setStyleSheet("background-color: rgb(252, 249, 240);\n"
-                                        "border-color: rgb(56, 156, 216);\n"
-                                        "border-width: 3px;\n"
-                                        "border-style: dashed;\n"
-                                        "border-radius : 22;")
-        self.grid_layout_3.addWidget(self.list_value_8, 4, 3, 1, 1)
-        self.list_value_6 = CardsListView(self)
-        self.list_value_6.setStyleSheet("background-color: rgb(252, 249, 240);\n"
-                                        "border-color: rgb(56, 156, 216);\n"
-                                        "border-width: 3px;\n"
-                                        "border-style: dashed;\n"
-                                        "border-radius : 22;")
-        self.grid_layout_3.addWidget(self.list_value_6, 4, 1, 1, 1)
+
         self.grid_layout.addLayout(self.grid_layout_3, 2, 2, 1, 1)
         self.label_cards = QtWidgets.QLabel(self.central_widget)
         self.label_cards.setStyleSheet("background-color: rgb(135, 198, 213);\n"
@@ -257,8 +280,9 @@ class ThirdPage(PageWindow):
 
     def next_page(self):
         cards_list = []
-        # for x in range(self.list_new_important.count()):
-        #     cards_list.append(self.list_new_important.item(x).data(Qt.UserRole))
+        for x in self.lists:
+            if x.item(0):
+                cards_list.append(x.item(0).data(Qt.UserRole))
         from fourth_page import FourthPage
         self.parent.register(FourthPage(cards_list, self.parent), "fourth")
         self.goto("fourth")

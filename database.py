@@ -50,7 +50,8 @@ VALUES (\'{date}\', {user_id},\'{card_path}\')''')
         return df
 
     def get_save(self, name, date):
-        self.cursor.execute(f'''select card_path, name, date from result 
+        print(date)
+        self.cursor.execute(f'''select DISTINCT card_path, name, date from result 
 join user on user.user_id = result.user_id where 
 name = \'{name}\' and date = \'{date}\'''')
         df = pd.DataFrame(self.cursor.fetchall(), columns=['card_path', 'name', 'date'])

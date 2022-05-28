@@ -3,7 +3,7 @@ import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QStyleFactory
 
-from first_page_new import FirstPageNew
+from first_page import FirstPageNew
 from fourth_page import FourthPage
 from page_window import PageWindow
 from saves_page import SavesPage
@@ -43,10 +43,10 @@ class Main(QtWidgets.QMainWindow):
         self.register(SavesPage(self), "saves")
         self.register(StartPage(self), "start")
         self.register(FirstPageNew(self), "first_new")
-        # self.register(FourthPage([], self), "fourth")
+        self.register(FourthPage([], self), "fourth")
 
         self.showMaximized()
-        self.goto("first_new")
+        self.goto("start")
 
     def register(self, widget, name):
         self.m_pages[name] = widget

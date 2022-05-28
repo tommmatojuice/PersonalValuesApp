@@ -1,14 +1,18 @@
+import sys
+
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import QSize, Qt
-from PyQt5.QtWidgets import QTableWidgetItem, QListWidget, QListWidgetItem
+from PyQt5.QtGui import QBrush, QColor
+from PyQt5.QtWidgets import QTableWidgetItem, QListWidget, QListWidgetItem, QApplication
 
+from enter_name_page import EnterNamePage
 from page_window import PageWindow
+from test import Second
 
 
 class FourthPage(PageWindow):
     def __init__(self, cards_list, parent=None):
         super().__init__(parent)
-        print(1)
         self.parent = parent
         self.cards_list = cards_list
         self.central_widget = QtWidgets.QWidget()
@@ -33,7 +37,7 @@ class FourthPage(PageWindow):
         self.label_cong.setAlignment(QtCore.Qt.AlignCenter)
         self.vertical_layout_text.addWidget(self.label_cong)
         self.label_having = QtWidgets.QLabel(self.central_widget)
-        self.label_having.setFont(QtGui.QFont('Roboto', 14))
+        self.label_having.setFont(QtGui.QFont('Roboto', 16))
         self.label_having.setStyleSheet("color: rgb(30, 72, 154);")
         self.label_having.setAlignment(QtCore.Qt.AlignCenter)
         self.vertical_layout_text.addWidget(self.label_having)
@@ -133,11 +137,11 @@ class FourthPage(PageWindow):
         self.label_bottom.setMargin(20)
         self.label_bottom.setFont(QtGui.QFont('Roboto', 12))
         self.grid_layout_bottom.addWidget(self.label_bottom, 0, 0, 1, 1)
-        self.back_button = QtWidgets.QPushButton(self.central_widget)
-        self.back_button.setFont(QtGui.QFont('Roboto', 14))
-        self.back_button.setMinimumSize(QtCore.QSize(112, 44))
-        self.back_button.setMaximumSize(QtCore.QSize(112, 44))
-        self.back_button.setStyleSheet("QPushButton {\n"
+        self.quit_button = QtWidgets.QPushButton(self.central_widget)
+        self.quit_button.setFont(QtGui.QFont('Roboto', 14))
+        self.quit_button.setMinimumSize(QtCore.QSize(112, 44))
+        self.quit_button.setMaximumSize(QtCore.QSize(112, 44))
+        self.quit_button.setStyleSheet("QPushButton {\n"
                                        "background-color: rgb(150, 176, 203);\n"
                                        "color: rgb(255, 255, 255);\n"
                                        "border-radius : 22;\n"
@@ -149,7 +153,7 @@ class FourthPage(PageWindow):
                                        "color: rgb(255, 255, 255);\n"
                                        "border-radius : 22;\n"
                                        "}")
-        self.grid_layout_bottom.addWidget(self.back_button, 0, 3, 1, 1)
+        self.grid_layout_bottom.addWidget(self.quit_button, 0, 3, 1, 1)
         self.save_button = QtWidgets.QPushButton(self.central_widget)
         self.save_button.setFont(QtGui.QFont('Roboto', 14))
         self.save_button.setMinimumSize(QtCore.QSize(112, 44))
@@ -176,12 +180,25 @@ class FourthPage(PageWindow):
         self.retranslate_ui()
 
         self.set_table()
+        self.init_buttons()
 
     def set_table(self):
-        for i in range(10):
-            item = QListWidgetItem(str(i))
+        self.table_view.setEnabled(False)
+        for i in self.cards_list:
+            item = QListWidgetItem(str(i.title).upper().replace('_', ' '))
+            item.setTextAlignment(Qt.AlignCenter)
+            item.setFont(QtGui.QFont('Roboto', 14))
+            item.setForeground(QBrush(QColor('#603B00')))
             item.setSizeHint(QSize(100, 77))
             self.table_view.addItem(item)
+
+    def init_buttons(self):
+        self.save_button.clicked.connect(self.save_click)
+        self.quit_button.clicked.connect(lambda: self.goto("start"))
+
+    def save_click(self):
+        dialog = EnterNamePage(self.cards_list, self.parent)
+        dialog.show()
 
     def retranslate_ui(self):
         _translate = QtCore.QCoreApplication.translate
@@ -213,4 +230,4 @@ class FourthPage(PageWindow):
         self.label_bottom.setText(
             _translate("MainWindow", "You can save your results so that you can resee them later."))
         self.save_button.setText(_translate("MainWindow", "SAVE"))
-        self.back_button.setText(_translate("MainWindow", "BACK"))
+        self.quit_button.setText(_translate("MainWindow", "QUIT"))
