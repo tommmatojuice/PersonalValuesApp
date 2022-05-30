@@ -5,6 +5,7 @@ from PyQt5.QtWidgets import *
 from datetime import datetime
 
 from cards_list_view import CardsListView
+from instruction_2 import Instruction2
 from page_window import PageWindow
 from third_page import ThirdPage
 
@@ -18,7 +19,6 @@ class SecondPageNew(PageWindow):
         self.central_widget.setStyleSheet("background-color: rgb(243, 234, 227);")
         self.grid_layout = QtWidgets.QGridLayout(self.central_widget)
         self.grid_layout.setContentsMargins(20, 20, 20, 20)
-        # self.grid_layout.setContentsMargins(10, -1, -1, -1)
         self.grid_layout_2 = QtWidgets.QGridLayout()
         self.grid_layout_2.setContentsMargins(10, 10, 10, 0)
         spacer_item = QtWidgets.QSpacerItem(0, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
@@ -134,6 +134,12 @@ class SecondPageNew(PageWindow):
     def init_buttons(self):
         self.next_button.clicked.connect(self.next_page)
         self.prev_button.clicked.connect(lambda: self.goto("first_new"))
+        self.info_button.clicked.connect(self.info_page)
+
+    def info_page(self):
+        self.info_button.setEnabled(False)
+        dialog = Instruction2(self.parent)
+        dialog.show()
 
     def load_icons(self):
         if self.cards_list:

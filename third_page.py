@@ -4,6 +4,7 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import *
 
 from cards_list_view import CardsListView
+from instruction_3 import Instruction3
 from page_window import PageWindow
 
 
@@ -257,7 +258,6 @@ class ThirdPage(PageWindow):
 
         self.load_icons()
         self.init_buttons()
-        self.init_buttons()
         self.retranslate_ui()
 
     def load_icons(self):
@@ -269,9 +269,14 @@ class ThirdPage(PageWindow):
                 self.list_cards.addItem(item)
 
     def init_buttons(self):
-        pass
         self.next_button.clicked.connect(self.next_page)
         self.prev_button.clicked.connect(self.prev_page)
+        self.info_button.clicked.connect(self.info_page)
+
+    def info_page(self):
+        self.info_button.setEnabled(False)
+        dialog = Instruction3(self.parent)
+        dialog.show()
 
     def prev_page(self):
         from second_page_new import SecondPageNew

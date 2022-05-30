@@ -41,7 +41,7 @@ class StartPage(PageWindow):
                                         color: rgb(255, 255, 255);
                                         border-radius : 22;
                                         }''')
-        self.start_button.clicked.connect(lambda: self.goto('first_new'))
+        self.start_button.clicked.connect(lambda: self.goto('instruction'))
 
         self.horizontal_layout.addWidget(self.start_button)
         self.vertical_layout.addLayout(self.horizontal_layout)

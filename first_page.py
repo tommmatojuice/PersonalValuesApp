@@ -9,6 +9,7 @@ from PyQt5.QtWidgets import *
 from card import Card
 from cards_list_view import CardsListView
 from database import AppDataBase
+from instruction_1 import Instruction1
 from page_window import PageWindow
 from second_page_new import SecondPageNew
 
@@ -17,7 +18,6 @@ class FirstPageNew(PageWindow):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.parent = parent
-        print(self.parent)
         self.setWindowTitle("Personal Values Test")
         self.central_widget = QtWidgets.QWidget()
         self.central_widget.setStyleSheet("background-color: rgb(243, 234, 227);\n")
@@ -133,6 +133,12 @@ class FirstPageNew(PageWindow):
     def init_buttons(self):
         self.next_button.clicked.connect(self.next_page)
         self.prev_button.clicked.connect(lambda: self.goto("start"))
+        self.info_button.clicked.connect(self.info_page)
+
+    def info_page(self):
+        self.info_button.setEnabled(False)
+        dialog = Instruction1(self.parent)
+        dialog.show()
 
     def load_icons(self):
         icon_folder = os.path.join(os.getcwd(), 'icons')

@@ -5,8 +5,10 @@ from PyQt5.QtWidgets import QStyleFactory
 
 from first_page import FirstPageNew
 from fourth_page import FourthPage
+from instruction_page import InstructionPage
 from page_window import PageWindow
 from saves_page import SavesPage
+from saves_page_new import SavesPageNew
 from start_page import StartPage
 
 # нужно добавить окна с информацией
@@ -34,16 +36,21 @@ class Main(QtWidgets.QMainWindow):
         self.setMenuBar(self.menu_bar)
         self.action_results = QtWidgets.QAction(self)
         self.action_results.setFont(font)
-        self.action_results.triggered.connect(lambda: self.goto('saves'))
+        self.action_results.triggered.connect(lambda: self.goto('saves_new'))
+        self.action_test = QtWidgets.QAction(self)
+        self.action_test.setFont(font)
+        self.action_test.triggered.connect(lambda: self.goto('start'))
+        self.menu_menu.addAction(self.action_test)
         self.menu_menu.addAction(self.action_results)
         self.menu_bar.addAction(self.menu_menu.menuAction())
         self.retranslate_ui()
 
         self.m_pages = {}
-        self.register(SavesPage(self), "saves")
         self.register(StartPage(self), "start")
         self.register(FirstPageNew(self), "first_new")
         self.register(FourthPage([], self), "fourth")
+        self.register(InstructionPage(self), "instruction")
+        self.register(SavesPageNew(self), "saves_new")
 
         self.showMaximized()
         self.goto("start")
@@ -58,6 +65,7 @@ class Main(QtWidgets.QMainWindow):
         _translate = QtCore.QCoreApplication.translate
         self.menu_menu.setTitle(_translate("MainWindow", "Menu"))
         self.action_results.setText(_translate("MainWindow", "Results"))
+        self.action_test.setText(_translate("MainWindow", "Test"))
 
     @QtCore.pyqtSlot(str)
     def goto(self, name):
@@ -79,4 +87,5 @@ if __name__ == "__main__":
     ''')
     w = Main()
     w.show()
-    sys.exit(app.exec_())
+    # sys.exit(app.exec_())
+    sys.exit(app.exec())
