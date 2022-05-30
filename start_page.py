@@ -15,7 +15,7 @@ class StartPage(PageWindow):
         self.vertical_layout.addItem(spacer_item)
 
         self.label = QtWidgets.QLabel(self.central_widget)
-        self.label.setFont(QtGui.QFont('Roboto', 24))
+        self.label.setFont(QtGui.QFont('Roboto', 28))
         self.label.setStyleSheet("color: rgb(3, 67, 155);")
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setMargin(50)

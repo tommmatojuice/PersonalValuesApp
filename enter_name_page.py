@@ -10,6 +10,7 @@ class EnterNamePage(QMainWindow):
         super(EnterNamePage, self).__init__(parent)
         self.resize(QSize(514, 343))
         self.cards_list = cards_list
+        self.db = self.parent.db
         self.central_widget = QtWidgets.QWidget()
         self.central_widget.setMaximumSize(QSize(514, 343))
         self.central_widget.setStyleSheet("background-color: #F3EAE3;\n")
@@ -55,7 +56,6 @@ class EnterNamePage(QMainWindow):
         self.grid_layout.addItem(spacer_item, 8, 3, 1, 2)
         self.grid_layout.addItem(spacer_item, 5, 0, 1, 5)
         self.setCentralWidget(self.central_widget)
-        self.db = AppDataBase()
 
     def save_results(self):
         name = self.line_name.text()
@@ -69,5 +69,6 @@ class EnterNamePage(QMainWindow):
             self.db.insert_result(datetime.now().strftime("%d/%m/%Y %H:%M:%S"),
                                   user_id,
                                   x.path)
+        self.db.connection.close()
         self.close()
 

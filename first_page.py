@@ -132,7 +132,7 @@ class FirstPageNew(PageWindow):
 
     def init_buttons(self):
         self.next_button.clicked.connect(self.next_page)
-        self.prev_button.clicked.connect(lambda: self.goto("start"))
+        self.prev_button.clicked.connect(lambda: self.goto("instruction"))
         self.info_button.clicked.connect(self.info_page)
 
     def info_page(self):

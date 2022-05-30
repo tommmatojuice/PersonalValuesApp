@@ -3,6 +3,7 @@ import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QStyleFactory
 
+from database import AppDataBase
 from first_page import FirstPageNew
 from fourth_page import FourthPage
 from instruction_page import InstructionPage
@@ -10,17 +11,21 @@ from page_window import PageWindow
 from saves_page import SavesPage
 from saves_page_new import SavesPageNew
 from start_page import StartPage
+from datetime import datetime
 
-# нужно добавить окна с информацией
-# нужны проверки на последнем этапе теста
-# нужны проверки на ввод
+# заголовик
+# icon
+# вопрос о выходе
+# изменить время
+# изменить бд
 # pyuic5 -x start.ui -o start_page.py
 
 
 class Main(QtWidgets.QMainWindow):
     def __init__(self, parent=None):
         super().__init__(parent)
-
+        self.db = AppDataBase()
+        print(datetime.now().strftime("%d/%m/%Y %H:%M:%S")[:-3])
         self.stacked_widget = QtWidgets.QStackedWidget()
         self.setCentralWidget(self.stacked_widget)
 
@@ -36,7 +41,7 @@ class Main(QtWidgets.QMainWindow):
         self.setMenuBar(self.menu_bar)
         self.action_results = QtWidgets.QAction(self)
         self.action_results.setFont(font)
-        self.action_results.triggered.connect(lambda: self.goto('saves_new'))
+        self.action_results.triggered.connect(self.goto_saves)
         self.action_test = QtWidgets.QAction(self)
         self.action_test.setFont(font)
         self.action_test.triggered.connect(lambda: self.goto('start'))
@@ -48,12 +53,14 @@ class Main(QtWidgets.QMainWindow):
         self.m_pages = {}
         self.register(StartPage(self), "start")
         self.register(FirstPageNew(self), "first_new")
-        self.register(FourthPage([], self), "fourth")
         self.register(InstructionPage(self), "instruction")
-        self.register(SavesPageNew(self), "saves_new")
 
         self.showMaximized()
         self.goto("start")
+
+    def goto_saves(self):
+        self.register(SavesPageNew(self), "saves_new")
+        self.goto("saves_new")
 
     def register(self, widget, name):
         self.m_pages[name] = widget

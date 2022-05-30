@@ -11,7 +11,7 @@ class SavesPageNew(PageWindow):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.parent = parent
-        self.db = AppDataBase()
+        self.db = self.parent.db
         self.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.central_widget = QtWidgets.QWidget()
         self.central_widget.setObjectName("centralwidget")
@@ -110,10 +110,9 @@ class ListView(QtWidgets.QTreeView):
             0, QtWidgets.QHeaderView.Stretch)
         self.header().setSectionResizeMode(
             1, QtWidgets.QHeaderView.ResizeToContents)
-        self.db = AppDataBase()
 
-    def add_items(self):
-        saves = self.db.get_all_saver()
+    def add_items(self, db):
+        saves = db.get_all_saver()
         for index, row in saves.iterrows():
             first = QtGui.QStandardItem(row['name'])
             first.setSizeHint(QSize(0, 50))

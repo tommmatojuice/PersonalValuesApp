@@ -44,13 +44,12 @@ VALUES (\'{date}\', {user_id},\'{card_path}\')''')
 
     def get_all_saver(self):
         self.cursor.execute('''SELECT DISTINCT user.user_id, name, date FROM result 
-        JOIN user ON user.user_id = result.user_id
-        ORDER BY date DESC''')
+JOIN user ON user.user_id = result.user_id
+ORDER BY date DESC''')
         df = pd.DataFrame(self.cursor.fetchall(), columns=['user_id', 'name', 'date'])
         return df
 
     def get_save(self, name, date):
-        print(date)
         self.cursor.execute(f'''select DISTINCT card_path, name, date from result 
 join user on user.user_id = result.user_id where 
 name = \'{name}\' and date = \'{date}\'''')

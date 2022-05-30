@@ -47,7 +47,7 @@ class Instruction1(QMainWindow):
         self.not_important_label.setFont(QtGui.QFont('Roboto', 12))
         self.not_important_label.setStyleSheet("color: rgb(96, 59, 0);\n"
                                                "background-color: rgb(237, 207, 159);\n"
-                                               "border-radious:0px;")
+                                               "border-radius:0px;")
         self.not_important_label.setAlignment(QtCore.Qt.AlignCenter)
         self.horizontalLayout.addWidget(self.not_important_label)
         self.important_label = QtWidgets.QLabel(self.widget)
@@ -55,7 +55,7 @@ class Instruction1(QMainWindow):
         self.important_label.setFont(QtGui.QFont('Roboto', 12))
         self.important_label.setStyleSheet("color: rgb(96, 59, 0);\n"
                                            "background-color: rgb(237, 207, 159);\n"
-                                           "border-radious:0px;")
+                                           "border-radius:0px;")
         self.important_label.setAlignment(QtCore.Qt.AlignCenter)
         self.horizontalLayout.addWidget(self.important_label)
         self.very_important_label = QtWidgets.QLabel(self.widget)
@@ -63,7 +63,7 @@ class Instruction1(QMainWindow):
         self.very_important_label.setFont(QtGui.QFont('Roboto', 12))
         self.very_important_label.setStyleSheet("color: rgb(96, 59, 0);\n"
                                                 "background-color: rgb(237, 207, 159);\n"
-                                                "border-radious:0px;")
+                                                "border-radius:0px;")
         self.very_important_label.setAlignment(QtCore.Qt.AlignCenter)
         self.horizontalLayout.addWidget(self.very_important_label)
         self.grid_layout_2.addLayout(self.horizontalLayout, 3, 0, 1, 6)
