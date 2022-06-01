@@ -7,6 +7,7 @@ class Instruction1(QMainWindow):
     def __init__(self, parent=None):
         super(Instruction1, self).__init__(parent)
         self.parent = parent
+        self.setWindowTitle("Instruction")
         self.resize(866, 600)
         self.central_widget = QtWidgets.QWidget()
         self.gridLayout = QtWidgets.QGridLayout(self.central_widget)

@@ -11,6 +11,7 @@ from page_window import PageWindow
 class ThirdPage(PageWindow):
     def __init__(self, cards_list, parent=None):
         super().__init__(parent)
+        self.setWindowTitle("Personal Values Test")
         self.parent = parent
         self.cards_list = cards_list
         self.lists = []
@@ -274,12 +275,11 @@ class ThirdPage(PageWindow):
         self.info_button.clicked.connect(self.info_page)
 
     def info_page(self):
-        self.info_button.setEnabled(False)
         dialog = Instruction3(self.parent)
         dialog.show()
 
     def prev_page(self):
-        from second_page_new import SecondPageNew
+        from second_page import SecondPageNew
         self.parent.register(SecondPageNew(self.cards_list_copy, self.parent), "second_new")
         self.goto("second_new")
 

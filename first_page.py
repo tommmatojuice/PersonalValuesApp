@@ -11,7 +11,7 @@ from cards_list_view import CardsListView
 from database import AppDataBase
 from instruction_1 import Instruction1
 from page_window import PageWindow
-from second_page_new import SecondPageNew
+from second_page import SecondPageNew
 
 
 class FirstPageNew(PageWindow):
@@ -136,7 +136,6 @@ class FirstPageNew(PageWindow):
         self.info_button.clicked.connect(self.info_page)
 
     def info_page(self):
-        self.info_button.setEnabled(False)
         dialog = Instruction1(self.parent)
         dialog.show()
 

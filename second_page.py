@@ -15,6 +15,7 @@ class SecondPageNew(PageWindow):
         super().__init__(parent)
         self.parent = parent
         self.cards_list = cards_list
+        self.setWindowTitle("Personal Values Test")
         self.central_widget = QtWidgets.QWidget()
         self.central_widget.setStyleSheet("background-color: rgb(243, 234, 227);")
         self.grid_layout = QtWidgets.QGridLayout(self.central_widget)
@@ -137,7 +138,6 @@ class SecondPageNew(PageWindow):
         self.info_button.clicked.connect(self.info_page)
 
     def info_page(self):
-        self.info_button.setEnabled(False)
         dialog = Instruction2(self.parent)
         dialog.show()
 

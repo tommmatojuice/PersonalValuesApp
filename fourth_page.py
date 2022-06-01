@@ -7,12 +7,12 @@ from PyQt5.QtWidgets import QTableWidgetItem, QListWidget, QListWidgetItem, QApp
 
 from enter_name_page import EnterNamePage
 from page_window import PageWindow
-from test import Second
 
 
 class FourthPage(PageWindow):
     def __init__(self, cards_list, parent=None):
         super().__init__(parent)
+        self.setWindowTitle("Personal Values Test")
         self.parent = parent
         self.cards_list = cards_list
         self.central_widget = QtWidgets.QWidget()

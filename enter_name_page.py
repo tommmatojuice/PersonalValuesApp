@@ -1,16 +1,16 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import QSize, Qt
+from PyQt5.QtCore import QSize
 from PyQt5.QtWidgets import QMainWindow
-from database import AppDataBase
 from datetime import datetime
 
 
 class EnterNamePage(QMainWindow):
     def __init__(self, cards_list, parent=None):
         super(EnterNamePage, self).__init__(parent)
+        self.setWindowTitle("Save")
         self.resize(QSize(514, 343))
         self.cards_list = cards_list
-        self.db = self.parent.db
+        self.db = parent.db
         self.central_widget = QtWidgets.QWidget()
         self.central_widget.setMaximumSize(QSize(514, 343))
         self.central_widget.setStyleSheet("background-color: #F3EAE3;\n")
@@ -59,16 +59,17 @@ class EnterNamePage(QMainWindow):
 
     def save_results(self):
         name = self.line_name.text()
-        print(name)
         check_id = self.db.get_user_id(name)
         if check_id is None:
             user_id = self.db.insert_user(name)
         else:
             user_id = check_id
+        now_time = datetime.now().strftime("%d.%m.%Y %H:%M:%S")
         for x in self.cards_list:
-            self.db.insert_result(datetime.now().strftime("%d/%m/%Y %H:%M:%S"),
+            self.db.insert_result(now_time,
                                   user_id,
                                   x.path)
-        self.db.connection.close()
         self.close()
+
+
 

@@ -6,6 +6,7 @@ class Instruction2(QMainWindow):
     def __init__(self, parent=None):
         super(Instruction2, self).__init__(parent)
         self.resize(866, 603)
+        self.setWindowTitle("Instruction")
         self.central_widget = QtWidgets.QWidget()
         self.grid_layout = QtWidgets.QGridLayout(self.central_widget)
         self.grid_layout.setContentsMargins(30, 30, 30, 20)

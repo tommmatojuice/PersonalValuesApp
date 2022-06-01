@@ -8,24 +8,20 @@ from first_page import FirstPageNew
 from fourth_page import FourthPage
 from instruction_page import InstructionPage
 from page_window import PageWindow
-from saves_page import SavesPage
-from saves_page_new import SavesPageNew
+from saves_page import SavesPageNew
 from start_page import StartPage
 from datetime import datetime
 
-# заголовик
-# icon
 # вопрос о выходе
-# изменить время
-# изменить бд
 # pyuic5 -x start.ui -o start_page.py
 
 
 class Main(QtWidgets.QMainWindow):
     def __init__(self, parent=None):
         super().__init__(parent)
+        self.setWindowTitle("Personal Values Test")
         self.db = AppDataBase()
-        print(datetime.now().strftime("%d/%m/%Y %H:%M:%S")[:-3])
+        self.setWindowIcon(QtGui.QIcon('icons/logo.png'))
         self.stacked_widget = QtWidgets.QStackedWidget()
         self.setCentralWidget(self.stacked_widget)
 
