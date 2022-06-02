@@ -1,4 +1,4 @@
-#!S:\Study\ITMO\Programming\project\venv\Scripts\python.exe
+#!S:\Study\ITMO\Programming\project_test\venv\Scripts\python.exe
 # EASY-INSTALL-ENTRY-SCRIPT: 'pip==19.0.3','console_scripts','pip3'
 __requires__ = 'pip==19.0.3'
 import re
